@@ -46,11 +46,19 @@ h1{
     border: grey 1px dashed;
 }
 
-#copy{
+.copy{
     background-color: #e22f22;
 }
-#copy:hover{
+.copy:hover{
     background-color: #c12a1f;
+}
+.copy_success{
+    border-color: #198754;
+    background-color: #198754;
+}
+.copy_success:hover{
+    border-color: #198754;
+    background-color: #198754;
 }
 
 @media all and (max-width: 576px) {
