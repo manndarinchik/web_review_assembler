@@ -42,6 +42,8 @@ h1{
     display: flex;
     align-items: center;
     justify-content: space-between;
+    transition: ease-in-out 0.15s;
+    border-width: .5px;
 }
 .result{
     padding-bottom: 12px;
@@ -49,6 +51,7 @@ h1{
 #result{
     padding-left: 12px;
     padding-right: 12px;
+    white-space: pre;
 }
 #copy{
     padding: 6px;
@@ -70,11 +73,16 @@ h1{
     border-color: #198754;
     background-color: #198754;
 }
-textarea{
-    resize: none;
+.in_focus{
+    border: 4.5px solid rgb(184, 207, 244);
+    border-radius: 2px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    padding-left: 8px;
+    padding-right: 8px;
 }
 
-@media all and (max-width: 576px) {
+@media (max-width: 576px) {
     .title{
         border-radius: 0;
     }

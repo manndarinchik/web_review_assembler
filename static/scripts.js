@@ -24,7 +24,9 @@ let button_styles_active=[
 
 $(document).ready(function(){
 
-    let used_ids = []
+    let used_ids = [];
+    let input_focus = false;
+    let user_input = "";
 
     function update_result(){
         $("#result").html("");
@@ -33,6 +35,7 @@ $(document).ready(function(){
                 $("#result").html($("#result").html() + buttons[i][0] + " ");
             }
         }
+        $("#result").html($("#result").html() + " " + user_input);
     }
 
     for (let i = 0; i < buttons.length; ++ i) {
@@ -66,4 +69,29 @@ $(document).ready(function(){
             $(this).addClass("copy_success");
         }
     });
+
+    $(document).click(function(e){
+        let res_field = $(".form-control");
+        input_focus = document.elementFromPoint(e.clientX, e.clientY) == res_field[0]
+        if (input_focus){
+            res_field.addClass("in_focus");
+        } else {
+            res_field.removeClass("in_focus");
+        }
+    })
+    $(document).keydown(function(e){
+        if (input_focus){
+            if (e.key.length == 1){
+                user_input += e.key;
+            } else if (e.key == "Enter"){
+                user_input += "\n";
+            } else if (e.key == "Backspace"){
+                user_input = user_input.slice(0, user_input.length - 1)
+            }
+            console.log(e.key)
+            update_result();
+        }
+    })
+
+
 });
