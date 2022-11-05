@@ -1,3 +1,7 @@
+:root{
+    --key: #4628a5;
+}
+
 .main_container{
     display: flex;
     justify-content: center;
@@ -16,7 +20,7 @@
     width: 100%;    
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
-    background-color: #e22f22;
+    background-color: #4628a5;
     color: white;
     padding: 10px 10px 10px 12px;
 }
@@ -46,18 +50,26 @@ h1{
     margin: 0;
 }
 .copy{
-    background-color: #e22f22;
-}
-.copy:hover{
-    background-color: #c12a1f;
+    --bs-btn-color: var(--bs-white);
+    --bs-btn-bg: var(--key);  
+    --bs-btn-hover-border-color: var(--key);
+    --bs-btn-border-color: var(--key);
+    --bs-btn-hover-bg: #371f83;
+    --bs-btn-active-bg: #2c186f;
+    --bs-btn-hover-color: var(--bs-white);
+    --bs-btn-active-color: var(--bs-white);
+
+
 }
 .copy_success{
-    border-color: #198754;
-    background-color: #198754;
-}
-.copy_success:hover{
-    border-color: #198754;
-    background-color: #198754;
+    --bs-btn-color: var(--bs-white);
+    --bs-btn-bg: var(--bs-green);  
+    --bs-btn-hover-border-color: var(--bs-green);
+    --bs-btn-border-color: var(--bs-green);
+    --bs-btn-hover-bg: var(--bs-green);
+    --bs-btn-active-bg: var(--bs-green);
+    --bs-btn-hover-color: var(--bs-white);
+    --bs-btn-active-color: var(--bs-white);
 }
 #generated_input{
     font-weight: 600;

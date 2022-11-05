@@ -38,6 +38,17 @@ $(document).ready(function(){
         }
         $("#generated_input").html(generated_input);
     }
+    function set_copy_buttons_state(is_success){
+        $("#copy,#copy2").each(function(){
+            if (is_success){
+                $(this).removeClass("copy");
+                $(this).addClass("copy_success");
+            } else {
+                $(this).addClass("copy");
+                $(this).removeClass("copy_success");
+            }
+        });
+    }
 
     for (let i = 0; i < buttons.length; ++ i) {
         element = buttons[i]
@@ -50,8 +61,7 @@ $(document).ready(function(){
     }
 
     $("#cards").children().click(function(){
-        $("#copy").addClass("copy");
-        $("#copy").removeClass("copy_success");
+        set_copy_buttons_state(false);
 
         let scnd_cls = $(this).attr("class").split(/\s+/)[1]
         let review_id = $(this).attr("review_id")
@@ -67,8 +77,7 @@ $(document).ready(function(){
         $(this).click(function(){
             if ($("#generated_input").html() != "" || $("#user_input").html() != ""){
                 navigator.clipboard.writeText(generated_input + " " + $("#user_input").html());
-                $(this).removeClass("copy");
-                $(this).addClass("copy_success");
+                set_copy_buttons_state(true);
             }
         });
     });
@@ -77,8 +86,7 @@ $(document).ready(function(){
         let res_field = $("#result");
         input_focus = document.elementFromPoint(e.clientX, e.clientY) == res_field[0];
         if (input_focus){
-            $("#copy").addClass("copy");
-            $("#copy").removeClass("copy_success");
+            set_copy_buttons_state(false);
             $("#user_input").focus();
             res_field.addClass("outline");
         } else {
