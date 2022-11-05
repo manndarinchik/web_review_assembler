@@ -52,7 +52,7 @@ $(document).ready(function(){
     $("#cards").children().click(function(){
         $("#copy").addClass("copy");
         $("#copy").removeClass("copy_success");
-        
+
         let scnd_cls = $(this).attr("class").split(/\s+/)[1]
         let review_id = $(this).attr("review_id")
 
@@ -63,13 +63,16 @@ $(document).ready(function(){
         $(this).toggleClass(button_styles_active[buttons[review_id][1]]);
     })
 
-    $("#copy").click(function(){
-        if ($("#generated_input").html() != "" || $("#user_input").html() != ""){
-            navigator.clipboard.writeText(generated_input + " " + $("#user_input").html());
-            $(this).removeClass("copy");
-            $(this).addClass("copy_success");
-        }
+    $("#copy,#copy2").each(function(){
+        $(this).click(function(){
+            if ($("#generated_input").html() != "" || $("#user_input").html() != ""){
+                navigator.clipboard.writeText(generated_input + " " + $("#user_input").html());
+                $(this).removeClass("copy");
+                $(this).addClass("copy_success");
+            }
+        });
     });
+
     $(document).click(function(e){
         let res_field = $("#result");
         input_focus = document.elementFromPoint(e.clientX, e.clientY) == res_field[0];
